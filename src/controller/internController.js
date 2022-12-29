@@ -28,7 +28,7 @@ try {
 
         let data = req.body
 
-        let { name, mobile, email, collegeName } = body
+        let { name, mobile, email, collegeName } = data
 
         // // // If body is empty
         if (Object.keys(body).length <= 0) return res.status(400).send({ status: false, message: "Give some data to create " })
@@ -60,7 +60,7 @@ try {
 
         body.collegeId = collegeIdByClgName._id
 
-        let newInternData = await internModel.create(body)
+        let newInternData = await internModel.create(data)
 
         res.status(201).send({ status: true, message: "Intern created successfully", data: newInternData })
     } catch (err) {
